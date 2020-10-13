@@ -8,10 +8,12 @@ import java.awt.event.*;
 class UpdateEmployee extends AddEmployee implements ActionListener {
 
 	JFrame jf;
-	JLabel id1, id2, id3, id4, id5, id6, id7, id8, id9, id10, id11, id12, id13;
-	JTextField text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13;
-	JButton button, button1;
-	String employeeId;
+	JLabel empIdLabel, nameLabel, lastNameLabel, ageLabel, dateOfBirthLabel, addressLabel, phoneNoLabel, emailLabel,
+		   educationLabel, positionLabel, iTaxNoLabel, mainLabel, imageLabel;
+	JTextField employeeId, name, lastName, age, dateOfBirth, address, phoneNo, email, education, position, iTaxNo;
+	JButton cancelButton, updateButton;
+	String ID;
+
 
 	UpdateEmployee(String id) {
 		super(0);
@@ -22,128 +24,128 @@ class UpdateEmployee extends AddEmployee implements ActionListener {
 		jf.setBackground(Color.white);
 		jf.setLayout(null);
 
-		employeeId = id;
-		id13 = new JLabel();
-		id13.setBounds(0, 0, 1000, 700);
-		id13.setLayout(null);
+		ID = id;
+		imageLabel = new JLabel();
+		imageLabel.setBounds(0, 0, 1000, 700);
+		imageLabel.setLayout(null);
 		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("employee/icons/addEmployee1.jpg"));
-		id13.setIcon(img);
+		imageLabel.setIcon(img);
 
-		id12 = new JLabel("Update Employee Detail:");
-		id12.setBounds(50, 10, 500, 50);
-		id12.setFont(new Font("serif", Font.ITALIC, 40));
-		id12.setForeground(Color.black);
-		id13.add(id12);
-		jf.add(id13);
+		mainLabel = new JLabel("Update Employee Detail:");
+		mainLabel.setBounds(50, 10, 500, 50);
+		mainLabel.setFont(new Font("serif", Font.ITALIC, 40));
+		mainLabel.setForeground(Color.black);
+		imageLabel.add(mainLabel);
+		jf.add(imageLabel);
 
-		id1 = new JLabel("Employee Id");
-		id1.setBounds(50, 150, 150, 30);
-		id1.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id1);
+		empIdLabel = new JLabel("Employee Id");
+		empIdLabel.setBounds(50, 150, 150, 30);
+		empIdLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(empIdLabel);
 
-		text1 = new JTextField();
-		text1.setBounds(250, 150, 150, 30);
-		id13.add(text1);
+		employeeId = new JTextField();
+		employeeId.setBounds(250, 150, 150, 30);
+		imageLabel.add(employeeId);
 
-		id2 = new JLabel("Name");
-		id2.setBounds(50, 200, 100, 30);
-		id2.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id2);
+		nameLabel = new JLabel("Name");
+		nameLabel.setBounds(50, 200, 100, 30);
+		nameLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(nameLabel);
 
-		text2 = new JTextField();
-		text2.setBounds(250, 200, 150, 30);
-		id13.add(text2);
+		name = new JTextField();
+		name.setBounds(250, 200, 150, 30);
+		imageLabel.add(name);
 
-		id3 = new JLabel("Lastname");
-		id3.setBounds(50, 250, 100, 30);
-		id3.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id3);
+		lastNameLabel = new JLabel("Lastname");
+		lastNameLabel.setBounds(50, 250, 100, 30);
+		lastNameLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(lastNameLabel);
 
-		text3 = new JTextField();
-		text3.setBounds(250, 250, 150, 30);
-		id13.add(text3);
+		lastName = new JTextField();
+		lastName.setBounds(250, 250, 150, 30);
+		imageLabel.add(lastName);
 
-		id4 = new JLabel("Age");
-		id4.setBounds(50, 300, 100, 30);
-		id4.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id4);
+		ageLabel = new JLabel("Age");
+		ageLabel.setBounds(50, 300, 100, 30);
+		ageLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(ageLabel);
 
-		text4 = new JTextField();
-		text4.setBounds(250, 300, 150, 30);
-		id13.add(text4);
+		age = new JTextField();
+		age.setBounds(250, 300, 150, 30);
+		imageLabel.add(age);
 
-		id5 = new JLabel("Date of Birth (yyyy-mm-dd)");
-		id5.setBounds(50, 350, 200, 30);
-		id5.setFont(new Font("serif", Font.BOLD, 17));
-		id13.add(id5);
+		dateOfBirthLabel = new JLabel("Date of Birth (yyyy-mm-dd)");
+		dateOfBirthLabel.setBounds(50, 350, 200, 30);
+		dateOfBirthLabel.setFont(new Font("serif", Font.BOLD, 17));
+		imageLabel.add(dateOfBirthLabel);
 
-		text5 = new JTextField();
-		text5.setBounds(250, 350, 150, 30);
-		id13.add(text5);
+		dateOfBirth = new JTextField();
+		dateOfBirth.setBounds(250, 350, 150, 30);
+		imageLabel.add(dateOfBirth);
 
-		id6 = new JLabel("Address");
-		id6.setBounds(50, 400, 150, 30);
-		id6.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id6);
+		addressLabel = new JLabel("Address");
+		addressLabel.setBounds(50, 400, 150, 30);
+		addressLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(addressLabel);
 
-		text6 = new JTextField();
-		text6.setBounds(250, 400, 150, 30);
-		id13.add(text6);
+		address = new JTextField();
+		address.setBounds(250, 400, 150, 30);
+		imageLabel.add(address);
 
-		id7 = new JLabel("Phone No");
-		id7.setBounds(450, 150, 100, 30);
-		id7.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id7);
+		phoneNoLabel = new JLabel("Phone No");
+		phoneNoLabel.setBounds(450, 150, 100, 30);
+		phoneNoLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(phoneNoLabel);
 
-		text7 = new JTextField();
-		text7.setBounds(600, 150, 150, 30);
-		id13.add(text7);
+		phoneNo = new JTextField();
+		phoneNo.setBounds(600, 150, 150, 30);
+		imageLabel.add(phoneNo);
 
-		id8 = new JLabel("Email");
-		id8.setBounds(450, 200, 100, 30);
-		id8.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id8);
+		emailLabel = new JLabel("Email");
+		emailLabel.setBounds(450, 200, 100, 30);
+		emailLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(emailLabel);
 
-		text8 = new JTextField();
-		text8.setBounds(600, 200, 150, 30);
-		id13.add(text8);
+		email = new JTextField();
+		email.setBounds(600, 200, 150, 30);
+		imageLabel.add(email);
 
-		id9 = new JLabel("Education");
-		id9.setBounds(450, 250, 100, 30);
-		id9.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id9);
+		educationLabel = new JLabel("Education");
+		educationLabel.setBounds(450, 250, 100, 30);
+		educationLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(educationLabel);
 
-		text9 = new JTextField();
-		text9.setBounds(600, 250, 150, 30);
-		id13.add(text9);
+		education = new JTextField();
+		education.setBounds(600, 250, 150, 30);
+		imageLabel.add(education);
 
-		id10 = new JLabel("Position");
-		id10.setBounds(450, 300, 100, 30);
-		id10.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id10);
+		positionLabel = new JLabel("Position");
+		positionLabel.setBounds(450, 300, 100, 30);
+		positionLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(positionLabel);
 
-		text10 = new JTextField();
-		text10.setBounds(600, 300, 150, 30);
-		id13.add(text10);
+		position = new JTextField();
+		position.setBounds(600, 300, 150, 30);
+		imageLabel.add(position);
 
-		id11 = new JLabel("Individual TaxNo");
-		id11.setBounds(450, 350, 200, 30);
-		id11.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id11);
+		iTaxNoLabel = new JLabel("Individual TaxNo");
+		iTaxNoLabel.setBounds(450, 350, 200, 30);
+		iTaxNoLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(iTaxNoLabel);
 
-		text11 = new JTextField();
-		text11.setBounds(600, 350, 150, 30);
-		id13.add(text11);
+		iTaxNo = new JTextField();
+		iTaxNo.setBounds(600, 350, 150, 30);
+		imageLabel.add(iTaxNo);
 
-		button = new JButton("Update");
-		button.setBounds(250, 550, 150, 40);
-		button.addActionListener(this);
-		id13.add(button);
+		updateButton = new JButton("Update");
+		updateButton.setBounds(250, 550, 150, 40);
+		updateButton.addActionListener(this);
+		imageLabel.add(updateButton);
 
-		button1 = new JButton("Cancel");
-		button1.setBounds(450, 550, 150, 40);
-		button1.addActionListener(this);
-		id13.add(button1);
+		cancelButton = new JButton("Cancel");
+		cancelButton.setBounds(450, 550, 150, 40);
+		cancelButton.addActionListener(this);
+		imageLabel.add(cancelButton);
 
 		showData(id);
 	}
@@ -154,23 +156,23 @@ class UpdateEmployee extends AddEmployee implements ActionListener {
 		try {
 			DataBaseConnection connection = new DataBaseConnection();
 			String query = "select * from employee where empId = '" + s + "'";
-			ResultSet rs = connection.st.executeQuery(query);
+			ResultSet rs = connection.statement.executeQuery(query);
 
 			if (rs.next()) {
 				jf.setVisible(true);
 				i = 1;
 
-				text1.setText(rs.getString(1));
-				text2.setText(rs.getString(2));
-				text3.setText(rs.getString(3));
-				text4.setText(rs.getString(4));
-				text5.setText(rs.getString(5));
-				text6.setText(rs.getString(6));
-				text7.setText(rs.getString(7));
-				text8.setText(rs.getString(8));
-				text9.setText(rs.getString(9));
-				text10.setText(rs.getString(10));
-				text11.setText(rs.getString(11));
+				employeeId.setText(rs.getString(1));
+				name.setText(rs.getString(2));
+				lastName.setText(rs.getString(3));
+				age.setText(rs.getString(4));
+				dateOfBirth.setText(rs.getString(5));
+				address.setText(rs.getString(6));
+				phoneNo.setText(rs.getString(7));
+				email.setText(rs.getString(8));
+				education.setText(rs.getString(9));
+				position.setText(rs.getString(10));
+				iTaxNo.setText(rs.getString(11));
 
 			} else {
 				JOptionPane.showMessageDialog(null, "Id not found");
@@ -185,15 +187,15 @@ class UpdateEmployee extends AddEmployee implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent ae) {
-		if (ae.getSource() == button && i == 1) {
+		if (ae.getSource() == updateButton && i == 1) {
 			try {
 				DataBaseConnection connectin = new DataBaseConnection();
-				String query = "update employee set empId='" + text1.getText() + "', name='" + text2.getText()
-						+ "', lastName='" + text3.getText() + "', age='" + text4.getText() + "'," + "dOb='"
-						+ text5.getText() + "', address ='" + text6.getText() + "', phone ='" + text7.getText()
-						+ "', email='" + text8.getText() + "'," + " education ='" + text9.getText() + "', position ='"
-						+ text10.getText() + "',iTaxNo='" + text11.getText() + "' where empId='" + employeeId + "'";
-				connectin.st.executeUpdate(query);
+				String query = "update employee set empId='" + employeeId.getText() + "', name='" + name.getText()
+						+ "', lastName='" + lastName.getText() + "', age='" + age.getText() + "'," + "dOb='"
+						+ dateOfBirth.getText() + "', address ='" + address.getText() + "', phone ='" + phoneNo.getText()
+						+ "', email='" + email.getText() + "'," + " education ='" + education.getText() + "', position ='"
+						+ position.getText() + "',iTaxNo='" + iTaxNo.getText() + "' where empId='" + ID + "'";
+				connectin.statement.executeUpdate(query);
 				JOptionPane.showMessageDialog(null, "successfully updated");
 				jf.setVisible(false);
 				new SearchEmployee();
@@ -201,7 +203,7 @@ class UpdateEmployee extends AddEmployee implements ActionListener {
 				System.out.println("The error is:" + e);
 			}
 		}
-		if (ae.getSource() == button1) {
+		if (ae.getSource() == cancelButton) {
 			jf.setVisible(false);
 			new ManagementActions();
 		}

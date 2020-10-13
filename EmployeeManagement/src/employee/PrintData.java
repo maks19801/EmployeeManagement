@@ -7,16 +7,18 @@ import java.sql.*;
 
 class PrintData implements ActionListener {
 	JFrame jf;
-	JLabel id, aid, id1, aid1, id2, aid2, id3, aid3, id4, aid4, id5, aid5, id6, aid6, id7, aid7, id8, id9, id10, aid10,
-			id11, aid11, id12, aid12;
-	String employeeId, ID, name, lastName, age, dOb, address, phone, email, education, position, iTaxNo;
-	JButton button1, button2;
+	JLabel empIdLabel, empIdLabelDb, nameLabel, nameLabelDb, lastNameLabel, lastNameLabelDb, ageLabel, ageLabelDb,
+			dateOfBirthLabel, dateOfBirthLabelDb, addressLabel, addressLabelDb, phoneNoLabel, phoneNoLabelDb,
+			emailLabel, emailLabelDb, educationLabel, educationLabelDb, positionLabel, positionLabelDb,
+			iTaxNoLabel, iTaxNoLabelDb, mainLabel, imageLabel;
+	String ID, name, lastName, age, dOb, address, phone, email, education, position, iTaxNo;
+	JButton printButton, cancelButton;
 
 	PrintData(String empId) {
 		try {
 			DataBaseConnection connection = new DataBaseConnection();
 			String query = "select * from employee where empId = '" + empId + "'";
-			ResultSet rs = connection.st.executeQuery(query);
+			ResultSet rs = connection.statement.executeQuery(query);
 
 			if (rs.next()) {
 
@@ -47,149 +49,148 @@ class PrintData implements ActionListener {
 		jf.setBackground(Color.black);
 		jf.setLayout(null);
 
-		id9 = new JLabel();
-		id9.setBounds(0, 0, 1000, 700);
-		id9.setLayout(null);
+		imageLabel = new JLabel();
+		imageLabel.setBounds(0, 0, 1000, 700);
+		imageLabel.setLayout(null);
 		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("employee/icons/addEmployee1.jpg"));
-		id9.setIcon(img);
+		imageLabel.setIcon(img);
 
-		id8 = new JLabel("Employee Details");
-		id8.setBounds(50, 10, 250, 30);
-		jf.add(id8);
-		id8.setFont(new Font("serif", Font.BOLD, 25));
-		id9.add(id8);
-		jf.add(id9);
+		mainLabel = new JLabel("Employee Details");
+		mainLabel.setBounds(50, 10, 250, 30);
+		mainLabel.setFont(new Font("serif", Font.BOLD, 25));
+		imageLabel.add(mainLabel);
+		jf.add(imageLabel);
 
-		id = new JLabel("Employee Id:");
-		id.setBounds(50, 70, 200, 30);
-		id.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id);
+		empIdLabel = new JLabel("Employee Id:");
+		empIdLabel.setBounds(50, 70, 200, 30);
+		empIdLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(empIdLabel);
 
-		aid = new JLabel(ID);
-		aid.setBounds(250, 70, 300, 30);
-		aid.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid);
+		empIdLabelDb = new JLabel(ID);
+		empIdLabelDb.setBounds(250, 70, 300, 30);
+		empIdLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(empIdLabelDb);
 
-		id1 = new JLabel("Name:");
-		id1.setBounds(50, 100, 200, 30);
-		id1.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id1);
+		nameLabel = new JLabel("Name:");
+		nameLabel.setBounds(50, 100, 200, 30);
+		nameLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(nameLabel);
 
-		aid1 = new JLabel(name);
-		aid1.setBounds(250, 100, 300, 30);
-		aid1.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid1);
+		nameLabelDb = new JLabel(name);
+		nameLabelDb.setBounds(250, 100, 300, 30);
+		nameLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(nameLabelDb);
 
-		id2 = new JLabel("Lastname:");
-		id2.setBounds(50, 130, 200, 30);
-		id2.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id2);
+		lastNameLabel = new JLabel("Lastname:");
+		lastNameLabel.setBounds(50, 130, 200, 30);
+		lastNameLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(lastNameLabel);
 
-		aid2 = new JLabel(lastName);
-		aid2.setBounds(250, 130, 300, 30);
-		aid2.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid2);
+		lastNameLabelDb = new JLabel(lastName);
+		lastNameLabelDb.setBounds(250, 130, 300, 30);
+		lastNameLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(lastNameLabelDb);
 
-		id3 = new JLabel("Age:");
-		id3.setBounds(50, 160, 200, 30);
-		id3.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id3);
+		ageLabel = new JLabel("Age:");
+		ageLabel.setBounds(50, 160, 200, 30);
+		ageLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(ageLabel);
 
-		aid3 = new JLabel(age);
-		aid3.setBounds(250, 160, 300, 30);
-		aid3.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid3);
+		ageLabelDb = new JLabel(age);
+		ageLabelDb.setBounds(250, 160, 300, 30);
+		ageLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(ageLabelDb);
 
-		id4 = new JLabel("Date of Birth:");
-		id4.setBounds(50, 190, 200, 30);
-		id4.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id4);
+		dateOfBirthLabel = new JLabel("Date of Birth:");
+		dateOfBirthLabel.setBounds(50, 190, 200, 30);
+		dateOfBirthLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(dateOfBirthLabel);
 
-		aid4 = new JLabel(dOb);
-		aid4.setBounds(250, 190, 300, 30);
-		aid4.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid4);
+		dateOfBirthLabelDb = new JLabel(dOb);
+		dateOfBirthLabelDb.setBounds(250, 190, 300, 30);
+		dateOfBirthLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(dateOfBirthLabelDb);
 
-		id5 = new JLabel("Address:");
-		id5.setBounds(50, 220, 200, 30);
-		id5.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id5);
+		addressLabel = new JLabel("Address:");
+		addressLabel.setBounds(50, 220, 200, 30);
+		addressLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(addressLabel);
 
-		aid5 = new JLabel(address);
-		aid5.setBounds(250, 220, 300, 30);
-		aid5.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid5);
+		addressLabelDb = new JLabel(address);
+		addressLabelDb.setBounds(250, 220, 300, 30);
+		addressLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(addressLabelDb);
 
-		id6 = new JLabel("Phone No:");
-		id6.setBounds(50, 250, 200, 30);
-		id6.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id6);
+		phoneNoLabel = new JLabel("Phone No:");
+		phoneNoLabel.setBounds(50, 250, 200, 30);
+		phoneNoLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(phoneNoLabel);
 
-		aid6 = new JLabel(phone);
-		aid6.setBounds(250, 250, 300, 30);
-		aid6.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid6);
+		phoneNoLabelDb = new JLabel(phone);
+		phoneNoLabelDb.setBounds(250, 250, 300, 30);
+		phoneNoLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(phoneNoLabelDb);
 
-		id7 = new JLabel("Email:");
-		id7.setBounds(50, 280, 200, 30);
-		id7.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id7);
+		emailLabel = new JLabel("Email:");
+		emailLabel.setBounds(50, 280, 200, 30);
+		emailLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(emailLabel);
 
-		aid7 = new JLabel(email);
-		aid7.setBounds(250, 280, 300, 30);
-		aid7.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid7);
+		emailLabelDb = new JLabel(email);
+		emailLabelDb.setBounds(250, 280, 300, 30);
+		emailLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(emailLabelDb);
 
-		id10 = new JLabel("Education:");
-		id10.setBounds(50, 310, 200, 30);
-		id10.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id10);
+		educationLabel = new JLabel("Education:");
+		educationLabel.setBounds(50, 310, 200, 30);
+		educationLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(educationLabel);
 
-		aid10 = new JLabel(education);
-		aid10.setBounds(250, 310, 300, 30);
-		aid10.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid10);
+		educationLabelDb = new JLabel(education);
+		educationLabelDb.setBounds(250, 310, 300, 30);
+		educationLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(educationLabelDb);
 
-		id11 = new JLabel("Position:");
-		id11.setBounds(50, 340, 200, 30);
-		id11.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id11);
+		positionLabel = new JLabel("Position:");
+		positionLabel.setBounds(50, 340, 200, 30);
+		positionLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(positionLabel);
 
-		aid11 = new JLabel(position);
-		aid11.setBounds(250, 340, 300, 30);
-		aid11.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid11);
+		positionLabelDb = new JLabel(position);
+		positionLabelDb.setBounds(250, 340, 300, 30);
+		positionLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(positionLabelDb);
 
-		id12 = new JLabel("Individual Tax No:");
-		id12.setBounds(50, 370, 200, 30);
-		id12.setFont(new Font("serif", Font.BOLD, 20));
-		id9.add(id12);
+		iTaxNoLabel = new JLabel("Individual Tax No:");
+		iTaxNoLabel.setBounds(50, 370, 200, 30);
+		iTaxNoLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(iTaxNoLabel);
 
-		aid12 = new JLabel(iTaxNo);
-		aid12.setBounds(250, 370, 300, 30);
-		aid12.setFont(new Font("serif", Font.PLAIN, 20));
-		id9.add(aid12);
+		iTaxNoLabelDb = new JLabel(iTaxNo);
+		iTaxNoLabelDb.setBounds(250, 370, 300, 30);
+		iTaxNoLabelDb.setFont(new Font("serif", Font.PLAIN, 20));
+		imageLabel.add(iTaxNoLabelDb);
 
-		button1 = new JButton("Print");
-		button1.setBounds(100, 520, 100, 30);
-		button1.addActionListener(this);
-		id9.add(button1);
+		printButton = new JButton("Print");
+		printButton.setBounds(100, 520, 100, 30);
+		printButton.addActionListener(this);
+		imageLabel.add(printButton);
 
-		button2 = new JButton("cancel");
-		button2.setBounds(250, 520, 100, 30);
-		button2.addActionListener(this);
-		id9.add(button2);
+		cancelButton = new JButton("Cancel");
+		cancelButton.setBounds(250, 520, 100, 30);
+		cancelButton.addActionListener(this);
+		imageLabel.add(cancelButton);
 
 	}
 
 	public void actionPerformed(ActionEvent ae) {
 
-		if (ae.getSource() == button1) {
+		if (ae.getSource() == printButton) {
 			JOptionPane.showMessageDialog(null, "printed successfully");
 			jf.setVisible(false);
 			new ManagementActions();
 		}
-		if (ae.getSource() == button2) {
+		if (ae.getSource() == cancelButton) {
 			jf.setVisible(false);
 			new ViewEmployee();
 		}

@@ -7,9 +7,10 @@ import javax.swing.*;
 class AddEmployee implements ActionListener {
 
 	JFrame jf;
-	JLabel id, id1, id2, id3, id4, id5, id6, id7, id8, id9, id10, id11, id12, id13;
-	JTextField text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13;
-	JButton button, button1;
+	JLabel empIdLabel, nameLabel, lastNameLabel, ageLabel, dateOfBirthLabel, addressLabel, phoneNoLabel, emailLabel,
+			educationLabel, positionLabel, iTaxNoLabel, mainLabel, imageLabel;
+	JTextField employeeId, name, lastName, age, dateOfBirth, address, phoneNo, email, education, position, iTaxNo;
+	JButton cancelButton, submitButton;
 
 	AddEmployee(int i) {
 	}
@@ -19,133 +20,133 @@ class AddEmployee implements ActionListener {
 		jf.setBackground(Color.white);
 		jf.setLayout(null);
 
-		id13 = new JLabel();
-		id13.setBounds(0, 0, 1000, 700);
-		id13.setLayout(null);
+		imageLabel = new JLabel();
+		imageLabel.setBounds(0, 0, 1000, 700);
+		imageLabel.setLayout(null);
 		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("employee/icons/addEmployee1.jpg"));
-		id13.setIcon(img);
+		imageLabel.setIcon(img);
 
-		id12 = new JLabel("New Employee Details");
-		id12.setBounds(320, 30, 500, 50);
-		id12.setFont(new Font("serif", Font.BOLD, 40));
-		id13.add(id12);
-		jf.add(id13);
+		mainLabel = new JLabel("New Employee Details");
+		mainLabel.setBounds(320, 30, 500, 50);
+		mainLabel.setFont(new Font("serif", Font.BOLD, 40));
+		imageLabel.add(mainLabel);
+		jf.add(imageLabel);
 
-		id1 = new JLabel("Employee Id");
-		id1.setBounds(50, 150, 150, 30);
-		id1.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id1);
+		empIdLabel = new JLabel("Employee Id");
+		empIdLabel.setBounds(50, 150, 150, 30);
+		empIdLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(empIdLabel);
 
-		text1 = new JTextField();
-		text1.setBounds(300, 150, 150, 30);
-		id13.add(text1);
+		employeeId = new JTextField();
+		employeeId.setBounds(300, 150, 150, 30);
+		imageLabel.add(employeeId);
 
-		id2 = new JLabel("Name");
-		id2.setBounds(50, 200, 100, 30);
-		id2.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id2);
+		nameLabel = new JLabel("Name");
+		nameLabel.setBounds(50, 200, 100, 30);
+		nameLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(nameLabel);
 
-		text2 = new JTextField();
-		text2.setBounds(300, 200, 150, 30);
-		id13.add(text2);
+		name = new JTextField();
+		name.setBounds(300, 200, 150, 30);
+		imageLabel.add(name);
 
-		id3 = new JLabel("Lastname");
-		id3.setBounds(50, 250, 100, 30);
-		id3.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id3);
+		lastNameLabel = new JLabel("Lastname");
+		lastNameLabel.setBounds(50, 250, 100, 30);
+		lastNameLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(lastNameLabel);
 
-		text3 = new JTextField();
-		text3.setBounds(300, 250, 150, 30);
-		id13.add(text3);
+		lastName = new JTextField();
+		lastName.setBounds(300, 250, 150, 30);
+		imageLabel.add(lastName);
 
-		id4 = new JLabel("Age");
-		id4.setBounds(50, 300, 100, 30);
-		id4.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id4);
+		ageLabel = new JLabel("Age");
+		ageLabel.setBounds(50, 300, 100, 30);
+		ageLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(ageLabel);
 
-		text4 = new JTextField();
-		text4.setBounds(300, 300, 150, 30);
-		id13.add(text4);
+		age = new JTextField();
+		age.setBounds(300, 300, 150, 30);
+		imageLabel.add(age);
 
-		id5 = new JLabel("Date of Birth (yyyy-mm-dd)");
-		id5.setBounds(50, 350, 250, 30);
-		id5.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id5);
+		dateOfBirthLabel = new JLabel("Date of Birth (yyyy-mm-dd)");
+		dateOfBirthLabel.setBounds(50, 350, 250, 30);
+		dateOfBirthLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(dateOfBirthLabel);
 
-		text5 = new JTextField();
-		text5.setBounds(300, 350, 150, 30);
-		id13.add(text5);
+		dateOfBirth = new JTextField();
+		dateOfBirth.setBounds(300, 350, 150, 30);
+		imageLabel.add(dateOfBirth);
 
-		id6 = new JLabel("Address");
-		id6.setBounds(50, 400, 150, 30);
-		id6.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id6);
+		addressLabel = new JLabel("Address");
+		addressLabel.setBounds(50, 400, 150, 30);
+		addressLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(addressLabel);
 
-		text6 = new JTextField();
-		text6.setBounds(300, 400, 150, 30);
-		id13.add(text6);
+		address = new JTextField();
+		address.setBounds(300, 400, 150, 30);
+		imageLabel.add(address);
 
-		id7 = new JLabel("Phone No");
-		id7.setBounds(500, 150, 100, 30);
-		id7.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id7);
+		phoneNoLabel = new JLabel("Phone No");
+		phoneNoLabel.setBounds(500, 150, 100, 30);
+		phoneNoLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(phoneNoLabel);
 
-		text7 = new JTextField();
-		text7.setBounds(700, 150, 150, 30);
-		id13.add(text7);
+		phoneNo = new JTextField();
+		phoneNo.setBounds(700, 150, 150, 30);
+		imageLabel.add(phoneNo);
 
-		id8 = new JLabel("Email");
-		id8.setBounds(500, 200, 100, 30);
-		id8.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id8);
+		emailLabel = new JLabel("Email");
+		emailLabel.setBounds(500, 200, 100, 30);
+		emailLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(emailLabel);
 
-		text8 = new JTextField();
-		text8.setBounds(700, 200, 150, 30);
-		id13.add(text8);
+		email = new JTextField();
+		email.setBounds(700, 200, 150, 30);
+		imageLabel.add(email);
 
-		id9 = new JLabel("Education");
-		id9.setBounds(500, 250, 100, 30);
-		id9.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id9);
+		educationLabel = new JLabel("Education");
+		educationLabel.setBounds(500, 250, 100, 30);
+		educationLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(educationLabel);
 
-		text9 = new JTextField();
-		text9.setBounds(700, 250, 150, 30);
-		id13.add(text9);
+		education = new JTextField();
+		education.setBounds(700, 250, 150, 30);
+		imageLabel.add(education);
 
-		id10 = new JLabel("Position");
-		id10.setBounds(500, 300, 100, 30);
-		id10.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id10);
+		positionLabel = new JLabel("Position");
+		positionLabel.setBounds(500, 300, 100, 30);
+		positionLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(positionLabel);
 
-		text10 = new JTextField();
-		text10.setBounds(700, 300, 150, 30);
-		id13.add(text10);
+		position = new JTextField();
+		position.setBounds(700, 300, 150, 30);
+		imageLabel.add(position);
 
-		id11 = new JLabel("Individual Tax No");
-		id11.setBounds(500, 350, 200, 30);
-		id11.setFont(new Font("serif", Font.BOLD, 20));
-		id13.add(id11);
+		iTaxNoLabel = new JLabel("Individual Tax No");
+		iTaxNoLabel.setBounds(500, 350, 200, 30);
+		iTaxNoLabel.setFont(new Font("serif", Font.BOLD, 20));
+		imageLabel.add(iTaxNoLabel);
 
-		text11 = new JTextField();
-		text11.setBounds(700, 350, 150, 30);
-		id13.add(text11);
+		iTaxNo = new JTextField();
+		iTaxNo.setBounds(700, 350, 150, 30);
+		imageLabel.add(iTaxNo);
 
-		button = new JButton("Submit");
-		button.setBackground(Color.BLACK);
-		button.setForeground(Color.WHITE);
-		button.setBounds(250, 550, 150, 40);
+		submitButton = new JButton("Submit");
+		submitButton.setBackground(Color.BLACK);
+		submitButton.setForeground(Color.WHITE);
+		submitButton.setBounds(250, 550, 150, 40);
 
-		id13.add(button);
+		imageLabel.add(submitButton);
 
-		button1 = new JButton("Cancel");
-		button1.setBackground(Color.BLACK);
-		button1.setForeground(Color.WHITE);
-		button1.setBounds(450, 550, 150, 40);
+		cancelButton = new JButton("Cancel");
+		cancelButton.setBackground(Color.BLACK);
+		cancelButton.setForeground(Color.WHITE);
+		cancelButton.setBounds(450, 550, 150, 40);
 
-		id13.add(button1);
+		imageLabel.add(cancelButton);
 
-		button.addActionListener(this);
-		button1.addActionListener(this);
+		submitButton.addActionListener(this);
+		cancelButton.addActionListener(this);
 
 		jf.setVisible(true);
 		jf.setSize(1000, 700);
@@ -154,33 +155,33 @@ class AddEmployee implements ActionListener {
 
 	public void actionPerformed(ActionEvent ae) {
 
-		String id = text1.getText();
-		String name = text2.getText();
-		String lastName = text3.getText();
-		String age = text4.getText();
-		String dOb = text5.getText();
-		String address = text6.getText();
-		String phone = text7.getText();
-		String email = text8.getText();
-		String education = text9.getText();
-		String position = text10.getText();
-		String iTaxNo = text11.getText();
-		if (ae.getSource() == button) {
+		String id = employeeId.getText();
+		String nameString = name.getText();
+		String lastNameString = lastName.getText();
+		String ageString = age.getText();
+		String dObString = dateOfBirth.getText();
+		String addressString = address.getText();
+		String phoneString = phoneNo.getText();
+		String emailString = email.getText();
+		String educationString = education.getText();
+		String positionString = position.getText();
+		String iTaxNoString = iTaxNo.getText();
+		if (ae.getSource() == submitButton) {
 			try {
 				DataBaseConnection connection = new DataBaseConnection();
-				String query = "insert into employee values('" + id + "','" + name + "','" + lastName + "','" + age
-						+ "','" + dOb + "','" + address + "','" + phone + "','" + email + "','" + education + "','"
-						+ position + "','" + iTaxNo + "')";
-				connection.st.executeUpdate(query);
+				String query = "insert into employee values('" + id + "','" + nameString + "','" + lastNameString
+						+ "','" + ageString + "','" + dObString + "','" + addressString + "','" + phoneString + "','"
+						+ emailString + "','" + educationString + "','" + positionString + "','" + iTaxNoString + "')";
+				connection.statement.executeUpdate(query);
 				JOptionPane.showMessageDialog(null, "Details Successfully Inserted");
 				jf.setVisible(false);
 				new ManagementActions();
 			} catch (Exception ee) {
 				System.out.println("The error is:" + ee);
 				JOptionPane.showMessageDialog(null, "Id is already exists!!!");
-				
+
 			}
-		} else if (ae.getSource() == button1) {
+		} else if (ae.getSource() == cancelButton) {
 			jf.setVisible(false);
 			new ManagementActions();
 		}

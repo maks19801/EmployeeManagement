@@ -7,100 +7,100 @@ import javax.swing.*;
 
 class RemoveEmployee implements ActionListener {
 	JFrame jf;
-	JTextField text;
-	JLabel label1, label2, label3, label4, label5, label6, label7, label8;
-	JButton button1, button2, button3, button4;
+	JTextField employeeId;
+	JLabel employeeIdLabel, nameLabel, nameLabelDb, lastNameLabel, lastNameLabelDb, phoneNoLabel, phoneNoLabelDb, imageLabel;
+	JButton searchButton, backButton, removeButton, cancelButton;
 
 	RemoveEmployee() {
 		jf = new JFrame("Remove Employee");
 		jf.setBackground(Color.green);
 		jf.setLayout(null);
 
-		label5 = new JLabel();
-		label5.setBounds(0, 0, 500, 500);
-		label5.setLayout(null);
+		imageLabel = new JLabel();
+		imageLabel.setBounds(0, 0, 500, 500);
+		imageLabel.setLayout(null);
 		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("employee/icons/remove.jpg"));
-		label5.setIcon(img);
-		jf.add(label5);
+		imageLabel.setIcon(img);
+		jf.add(imageLabel);
 
-		label1 = new JLabel("Employee Id");
-		label1.setBounds(50, 50, 250, 30);
-		label1.setForeground(Color.white);
+		employeeIdLabel = new JLabel("Employee Id");
+		employeeIdLabel.setBounds(50, 50, 250, 30);
+		employeeIdLabel.setForeground(Color.white);
 		Font f2 = new Font("serif", Font.BOLD, 25);
-		label1.setFont(f2);
-		label5.add(label1);
+		employeeIdLabel.setFont(f2);
+		imageLabel.add(employeeIdLabel);
 
-		text = new JTextField();
-		text.setBounds(250, 50, 150, 30);
-		label5.add(text);
+		employeeId = new JTextField();
+		employeeId.setBounds(250, 50, 150, 30);
+		imageLabel.add(employeeId);
 
-		button1 = new JButton("Search");
-		button1.setBounds(200, 100, 100, 30);
-		button1.addActionListener(this);
-		label5.add(button1);
+		searchButton = new JButton("Search");
+		searchButton.setBounds(200, 100, 100, 30);
+		searchButton.addActionListener(this);
+		imageLabel.add(searchButton);
 
-		button4 = new JButton("Back");
-		button4.setBounds(360, 100, 100, 30);
-		button4.addActionListener(this);
-		label5.add(button4);
+		backButton = new JButton("Back");
+		backButton.setBounds(360, 100, 100, 30);
+		backButton.addActionListener(this);
+		imageLabel.add(backButton);
 
-		label2 = new JLabel("Name:");
-		label2.setBounds(50, 150, 250, 30);
-		label2.setForeground(Color.white);
+		nameLabel = new JLabel("Name:");
+		nameLabel.setBounds(50, 150, 250, 30);
+		nameLabel.setForeground(Color.white);
 		Font f3 = new Font("serif", Font.BOLD, 20);
-		label2.setFont(f3);
-		label5.add(label2);
+		nameLabel.setFont(f3);
+		imageLabel.add(nameLabel);
 
-		label6 = new JLabel();
-		label6.setBounds(200, 150, 350, 30);
-		label6.setForeground(Color.white);
+		nameLabelDb = new JLabel();
+		nameLabelDb.setBounds(200, 150, 350, 30);
+		nameLabelDb.setForeground(Color.white);
 		Font f6 = new Font("serif", Font.BOLD, 20);
-		label6.setFont(f6);
-		label5.add(label6);
+		nameLabelDb.setFont(f6);
+		imageLabel.add(nameLabelDb);
 
-		label3 = new JLabel("Lastname:");
-		label3.setBounds(50, 200, 250, 30);
-		label3.setForeground(Color.white);
+		lastNameLabel = new JLabel("Lastname:");
+		lastNameLabel.setBounds(50, 200, 250, 30);
+		lastNameLabel.setForeground(Color.white);
 		Font f4 = new Font("serif", Font.BOLD, 20);
-		label3.setFont(f4);
-		label5.add(label3);
+		lastNameLabel.setFont(f4);
+		imageLabel.add(lastNameLabel);
 
-		label7 = new JLabel();
-		label7.setBounds(200, 200, 350, 30);
-		label7.setForeground(Color.white);
+		lastNameLabelDb = new JLabel();
+		lastNameLabelDb.setBounds(200, 200, 350, 30);
+		lastNameLabelDb.setForeground(Color.white);
 		Font f7 = new Font("serif", Font.BOLD, 20);
-		label7.setFont(f7);
-		label5.add(label7);
+		lastNameLabelDb.setFont(f7);
+		imageLabel.add(lastNameLabelDb);
 
-		label4 = new JLabel("Phone No:");
-		label4.setBounds(50, 250, 250, 30);
-		label4.setForeground(Color.white);
+		phoneNoLabel = new JLabel("Phone No:");
+		phoneNoLabel.setBounds(50, 250, 250, 30);
+		phoneNoLabel.setForeground(Color.white);
 		Font f5 = new Font("serif", Font.BOLD, 20);
-		label4.setFont(f5);
-		label5.add(label4);
+		phoneNoLabel.setFont(f5);
+		imageLabel.add(phoneNoLabel);
 
-		label8 = new JLabel();
-		label8.setBounds(200, 250, 350, 30);
-		label8.setForeground(Color.white);
+		phoneNoLabelDb = new JLabel();
+		phoneNoLabelDb.setBounds(200, 250, 350, 30);
+		phoneNoLabelDb.setForeground(Color.white);
 		Font f8 = new Font("serif", Font.BOLD, 20);
-		label8.setFont(f8);
-		label5.add(label8);
+		phoneNoLabelDb.setFont(f8);
+		imageLabel.add(phoneNoLabelDb);
 
-		button2 = new JButton("Remove");
-		button2.setBounds(120, 300, 100, 30);
-		button2.addActionListener(this);
-		label5.add(button2);
+		removeButton = new JButton("Remove");
+		removeButton.setBounds(120, 300, 100, 30);
+		removeButton.addActionListener(this);
+		imageLabel.add(removeButton);
 
-		button3 = new JButton("Cancel");
-		button3.setBounds(300, 300, 100, 30);
-		button3.addActionListener(this);
-		label5.add(button3);
+		cancelButton = new JButton("Cancel");
+		cancelButton.setBounds(300, 300, 100, 30);
+		cancelButton.addActionListener(this);
+		imageLabel.add(cancelButton);
 		
-		label2.setVisible(false);
-		label3.setVisible(false);
-		label4.setVisible(false);
-		button2.setVisible(false);
-		button3.setVisible(false);
+		nameLabel.setVisible(false);
+		lastNameLabel.setVisible(false);
+		phoneNoLabel.setVisible(false);
+		removeButton.setVisible(false);
+		cancelButton.setVisible(false);
 
 		jf.setSize(500, 500);
 		jf.setLocation(500, 100);
@@ -109,57 +109,57 @@ class RemoveEmployee implements ActionListener {
 
 	public void actionPerformed(ActionEvent ae) {
 
-		if (ae.getSource() == button1) {
+		if (ae.getSource() == searchButton) {
 			try {
 				DataBaseConnection connection = new DataBaseConnection();
-				String query = "select name,lastName,phone from employee where empId ='" + text.getText() + "' ";
-				ResultSet rs = connection.st.executeQuery(query);
+				String query = "select name, lastName, phone from employee where empId ='" + employeeId.getText() + "' ";
+				ResultSet rs = connection.statement.executeQuery(query);
 
 				int i = 0;
 				if (rs.next()) {
 					String name = rs.getString(1);
 					String mob = rs.getString(2);
-					String email = rs.getString(3);
+					String phone = rs.getString(3);
 
-					label2.setVisible(true);
-					label3.setVisible(true);
-					label4.setVisible(true);
-					button2.setVisible(true);
-					button3.setVisible(true);
+					nameLabel.setVisible(true);
+					lastNameLabel.setVisible(true);
+					phoneNoLabel.setVisible(true);
+					removeButton.setVisible(true);
+					cancelButton.setVisible(true);
 					i = 1;
-					label6.setText(name);
-					label7.setText(mob);
-					label8.setText(email);
+					nameLabelDb.setText(name);
+					lastNameLabelDb.setText(mob);
+					phoneNoLabelDb.setText(phone);
 				}
 				if (i == 0)
 					JOptionPane.showMessageDialog(null, "Id not found");
 			} catch (Exception ex) {
 			}
 		}
-		if (ae.getSource() == button2) {
+		if (ae.getSource() == removeButton) {
 			try {
 				DataBaseConnection connection = new DataBaseConnection();
-				String query = "delete from employee where empId = '" + text.getText() + "'";
-				connection.st.executeUpdate(query);
+				String query = "delete from employee where empId = '" + employeeId.getText() + "'";
+				connection.statement.executeUpdate(query);
 				JOptionPane.showMessageDialog(null, "deleted successfully");
-				label2.setVisible(false);
-				label3.setVisible(false);
-				label4.setVisible(false);
-				label6.setVisible(false);
-				label7.setVisible(false);
-				label8.setVisible(false);
-				button2.setVisible(false);
-				button3.setVisible(false);
+				nameLabel.setVisible(false);
+				lastNameLabel.setVisible(false);
+				phoneNoLabel.setVisible(false);
+				nameLabelDb.setVisible(false);
+				lastNameLabelDb.setVisible(false);
+				phoneNoLabelDb.setVisible(false);
+				removeButton.setVisible(false);
+				cancelButton.setVisible(false);
 
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, "Exception occured while deleting record " + ex);
 			}
 		}
-		if (ae.getSource() == button3) {
+		if (ae.getSource() == cancelButton) {
 			jf.setVisible(false);
 			new ManagementActions();
 		}
-		if (ae.getSource() == button4) {
+		if (ae.getSource() == backButton) {
 			jf.setVisible(false);
 			new ManagementActions();
 		}

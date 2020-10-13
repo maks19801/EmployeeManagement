@@ -4,14 +4,14 @@ import java.sql.*;
 
 
 public class DataBaseConnection {
-	public Connection conn;
-    public Statement st;
+	public Connection connection;
+    public Statement statement;
  
     public DataBaseConnection(){
         try{
            
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/max","root","root");
-            st = conn.createStatement();
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/max","root","root");
+            statement = connection.createStatement();
         }catch(Exception e) {
             e.printStackTrace();
         }

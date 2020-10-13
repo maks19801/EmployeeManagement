@@ -2,7 +2,6 @@ package employee;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.*;
 import java.sql.ResultSet;
 
@@ -11,10 +10,10 @@ import javax.swing.*;
 public class Login implements ActionListener {
 	
 	JFrame jf;
-	JLabel label1, label2;
-	JTextField textField;
-	JPasswordField pass;
-	JButton button1, button2;
+	JLabel userNameLabel, passwordLabel, imageLabel;
+	JTextField userName;
+	JPasswordField passWord;
+	JButton loginButton, cancelButton;
 	
 	Login(){
 		
@@ -23,44 +22,46 @@ public class Login implements ActionListener {
 		jf.setBackground(Color.WHITE);
 		jf.setLayout(null);
 		
-		label1 = new JLabel("Username");
-		label1.setBounds(40, 10, 100, 30);
-		label1.setFont(new Font("calibri", Font.BOLD, 20));
-		jf.add(label1);
+		userNameLabel = new JLabel("Username");
+		userNameLabel.setBounds(40, 10, 100, 30);
+		userNameLabel.setFont(new Font("calibri", Font.BOLD, 20));
+		jf.add(userNameLabel);
 		
-		label2 = new JLabel("PassWord");
-		label2.setBounds(40, 50, 100, 30);
-		label2.setFont(new Font("calibri", Font.BOLD, 20));
-		jf.add(label2);
+		passwordLabel = new JLabel("PassWord");
+		passwordLabel.setBounds(40, 50, 100, 30);
+		passwordLabel.setFont(new Font("calibri", Font.BOLD, 20));
+		jf.add(passwordLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(150, 10, 150, 30);
-		jf.add(textField);
+		userName = new JTextField();
+		userName.setBounds(150, 10, 150, 30);
+		jf.add(userName);
 		
-		pass = new JPasswordField();
-		pass.setBounds(150, 50, 150, 30);
-		jf.add(pass);
+		passWord = new JPasswordField();
+		passWord.setBounds(150, 50, 150, 30);
+		jf.add(passWord);
 		
-		ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("employee/icons/login.jpg"));
-		Image i2 = i1.getImage().getScaledInstance(400, 300, Image.SCALE_DEFAULT);
-		ImageIcon i3 = new ImageIcon(i2);
-		JLabel l1 = new JLabel(i3);
 		
-		l1.setBounds(0, 0, 400, 300);
-		jf.add(l1);
+		imageLabel = new JLabel();
+		imageLabel.setBounds(0, 0, 400, 300);
+		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("employee/icons/login.jpg"));
+		imageLabel.setIcon(img);
 		
-		button1 = new JButton("Login");
-		button1.setBounds(40, 200, 120, 30);
-		button1.setFont(new Font("serif", Font.BOLD, 20));
-		button1.addActionListener(this);
+		jf.add(imageLabel);
 		
-		l1.add(button1);
+		loginButton = new JButton("Login");
+		loginButton.setBounds(40, 200, 120, 30);
+		loginButton.setFont(new Font("serif", Font.BOLD, 20));
+		loginButton.addActionListener(this);
 		
-		button2 = new JButton("Cancel");
-		button2.setBounds(220, 200, 120, 30);
-		button2.setFont(new Font("serif", Font.BOLD, 20));
-		button2.addActionListener(this);
-		l1.add(button2);
+		imageLabel.add(loginButton);
+		
+		cancelButton = new JButton("Cancel");
+		cancelButton.setBounds(220, 200, 120, 30);
+		cancelButton.setFont(new Font("serif", Font.BOLD, 20));
+		cancelButton.addActionListener(this);
+		imageLabel.add(cancelButton);
+		
+		
 		
 		jf.getContentPane().setBackground(Color.WHITE);
 		
@@ -71,26 +72,32 @@ public class Login implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent ae) {
-		try {
-		DataBaseConnection connection = new DataBaseConnection();
-		String user = textField.getText();
-		@SuppressWarnings("deprecation")
-		String password = pass.getText();
+		if(ae.getSource() == loginButton){
+			try {
 		
-		String query = "select * from login where username = '"+user+"' and pass = '"+password+"'";
-		
-		ResultSet rs = connection.st.executeQuery(query);
-		
-		if(rs.next()) {
-			new ManagementActions().jf.setVisible(true);
+				DataBaseConnection connection = new DataBaseConnection();
+				String user = userName.getText();
+				@SuppressWarnings("deprecation")
+				String password = passWord.getText();
+				
+				String query = "select * from login where username = '"+user+"' and pass = '"+password+"'";
+				
+				ResultSet rs = connection.statement.executeQuery(query);
+				
+				if(rs.next()) {
+					new ManagementActions().jf.setVisible(true);
+					jf.setVisible(false);
+				
+				} else {
+					JOptionPane.showMessageDialog(null, "Invalid Login or Password");
+					//jf.setVisible(false);		
+				}
+			} catch(Exception e) {
+					e.printStackTrace();
+			}
+		}else if(ae.getSource() == cancelButton) {
 			jf.setVisible(false);
-			
-		} else {
-			JOptionPane.showMessageDialog(null, "Invalid Login or Password");
-			jf.setVisible(false);		
-		}
-		} catch(Exception e) {
-			e.printStackTrace();
+			new FrontPage();
 		}
 	}
 	
