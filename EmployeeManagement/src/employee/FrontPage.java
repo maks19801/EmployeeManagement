@@ -7,40 +7,36 @@ import javax.swing.*;
 public class FrontPage implements ActionListener {
 
 	JFrame jf;
-	JLabel id, l1;
-	JButton button;
+	JLabel mainLabel, imageLabel;
+	JButton continueButton;
 
 	public FrontPage() {
 		jf = new JFrame("Employee Management System");
 		jf.setBackground(Color.PINK);
 		jf.setLayout(null);
 
-		ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("employee/icons/front.jpg"));
-		Image i2 = i1.getImage().getScaledInstance(1400, 600, Image.SCALE_DEFAULT);
-		ImageIcon i3 = new ImageIcon(i2);
-		JLabel l1 = new JLabel(i3);
+		imageLabel = new JLabel();
+		imageLabel.setBounds(0, 100, 1400, 700);
+		imageLabel.setLayout(null);
+		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("employee/icons/front.jpg"));
+		imageLabel.setIcon(img);
 
-		l1.setBounds(0, 100, 1400, 700);
-		jf.add(l1);
+		jf.add(imageLabel);
 
-		button = new JButton("CLICK HERE TO CONTINUE");
-		button.setFont(new Font("calibri", Font.BOLD, 20));
+		continueButton = new JButton("CLICK HERE TO CONTINUE");
+		continueButton.setFont(new Font("calibri", Font.BOLD, 20));
 
-		button.setBounds(850, 550, 300, 70);
-		button.addActionListener(this);
+		continueButton.setBounds(850, 550, 300, 70);
+		continueButton.addActionListener(this);
 
-		id = new JLabel();
-		id.setBounds(0, 0, 1370, 750);
-		id.setLayout(null);
+		mainLabel = new JLabel("EMPLOYEE MANAGEMENT SYSTEM");
+		mainLabel.setBounds(75, 50, 1500, 100);
+		mainLabel.setFont(new Font("calibri", Font.PLAIN, 70));
+		mainLabel.setForeground(Color.DARK_GRAY);
+		imageLabel.add(mainLabel);
 
-		JLabel lid = new JLabel("EMPLOYEE MANAGEMENT SYSTEM");
-		lid.setBounds(75, 50, 1500, 100);
-		lid.setFont(new Font("calibri", Font.PLAIN, 70));
-		lid.setForeground(Color.DARK_GRAY);
-		id.add(lid);
-
-		id.add(button);
-		jf.add(id);
+		imageLabel.add(continueButton);
+		jf.add(imageLabel);
 
 		jf.getContentPane().setBackground(Color.WHITE);
 
@@ -52,7 +48,7 @@ public class FrontPage implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == button) {
+		if (e.getSource() == continueButton) {
 			jf.setVisible(false);
 			new Login();
 		}

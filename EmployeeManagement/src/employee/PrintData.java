@@ -9,8 +9,8 @@ class PrintData implements ActionListener {
 	JFrame jf;
 	JLabel empIdLabel, empIdLabelDb, nameLabel, nameLabelDb, lastNameLabel, lastNameLabelDb, ageLabel, ageLabelDb,
 			dateOfBirthLabel, dateOfBirthLabelDb, addressLabel, addressLabelDb, phoneNoLabel, phoneNoLabelDb,
-			emailLabel, emailLabelDb, educationLabel, educationLabelDb, positionLabel, positionLabelDb,
-			iTaxNoLabel, iTaxNoLabelDb, mainLabel, imageLabel;
+			emailLabel, emailLabelDb, educationLabel, educationLabelDb, positionLabel, positionLabelDb, iTaxNoLabel,
+			iTaxNoLabelDb, mainLabel, imageLabel;
 	String ID, name, lastName, age, dOb, address, phone, email, education, position, iTaxNo;
 	JButton printButton, cancelButton;
 

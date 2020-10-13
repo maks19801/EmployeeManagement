@@ -7,52 +7,51 @@ import java.awt.event.*;
 class ManagementActions implements ActionListener {
 
 	JFrame jf;
-	JLabel label1;
-	JButton button1, button2, button3, button4;
+	JLabel imageLabel, mainLabel;
+	JButton addButton, viewButton, removeButton, updateButton;
 
 	ManagementActions() {
 		jf = new JFrame("Management Actions");
 		jf.setBackground(Color.white);
 		jf.setLayout(null);
+		
+		imageLabel = new JLabel();
+		imageLabel.setBounds(0, 0, 700, 600);
+		imageLabel.setLayout(null);
+		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("employee/icons/details.jpg"));
+		imageLabel.setIcon(img);
+		
+		jf.add(imageLabel);
 
-		ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("employee/icons/details.jpg"));
-		Image i2 = i1.getImage().getScaledInstance(700, 600, Image.SCALE_DEFAULT);
-		ImageIcon i3 = new ImageIcon(i2);
+		mainLabel = new JLabel("Management Actions");
+		mainLabel.setBounds(410, 20, 250, 40);
+		mainLabel.setFont(new Font("serif", Font.BOLD, 25));
+		mainLabel.setForeground(Color.GREEN);
+		imageLabel.add(mainLabel);
 
-		JLabel l1 = new JLabel(i3);
+		addButton = new JButton("Add");
+		addButton.setBounds(420, 80, 100, 40);
+		addButton.setFont(new Font("serif", Font.BOLD, 15));
+		addButton.addActionListener(this);
+		imageLabel.add(addButton);
 
-		l1.setBounds(0, 0, 700, 600);
-		jf.add(l1);
+		viewButton = new JButton("View");
+		viewButton.setBounds(530, 80, 100, 40);
+		viewButton.setFont(new Font("serif", Font.BOLD, 15));
+		viewButton.addActionListener(this);
+		imageLabel.add(viewButton);
 
-		label1 = new JLabel("Management Actions");
-		label1.setBounds(410, 20, 250, 40);
-		label1.setFont(new Font("serif", Font.BOLD, 25));
-		label1.setForeground(Color.GREEN);
-		l1.add(label1);
+		removeButton = new JButton("Remove");
+		removeButton.setBounds(420, 140, 100, 40);
+		removeButton.setFont(new Font("serif", Font.BOLD, 15));
+		removeButton.addActionListener(this);
+		imageLabel.add(removeButton);
 
-		button1 = new JButton("Add");
-		button1.setBounds(420, 80, 100, 40);
-		button1.setFont(new Font("serif", Font.BOLD, 15));
-		button1.addActionListener(this);
-		l1.add(button1);
-
-		button2 = new JButton("View");
-		button2.setBounds(530, 80, 100, 40);
-		button2.setFont(new Font("serif", Font.BOLD, 15));
-		button2.addActionListener(this);
-		l1.add(button2);
-
-		button3 = new JButton("Remove");
-		button3.setBounds(420, 140, 100, 40);
-		button3.setFont(new Font("serif", Font.BOLD, 15));
-		button3.addActionListener(this);
-		l1.add(button3);
-
-		button4 = new JButton("Update");
-		button4.setBounds(530, 140, 100, 40);
-		button4.setFont(new Font("serif", Font.BOLD, 15));
-		button4.addActionListener(this);
-		l1.add(button4);
+		updateButton = new JButton("Update");
+		updateButton.setBounds(530, 140, 100, 40);
+		updateButton.setFont(new Font("serif", Font.BOLD, 15));
+		updateButton.addActionListener(this);
+		imageLabel.add(updateButton);
 
 		jf.setVisible(true);
 		jf.setSize(700, 500);
@@ -61,19 +60,19 @@ class ManagementActions implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent ae) {
-		if (ae.getSource() == button1) {
+		if (ae.getSource() == addButton) {
 			jf.setVisible(false);
 			new AddEmployee();
 		}
-		if (ae.getSource() == button2) {
+		if (ae.getSource() == viewButton) {
 			jf.setVisible(false);
 			new ViewEmployee();
 		}
-		if (ae.getSource() == button3) {
+		if (ae.getSource() == removeButton) {
 			jf.setVisible(false);
 			new RemoveEmployee();
 		}
-		if (ae.getSource() == button4) {
+		if (ae.getSource() == updateButton) {
 			jf.setVisible(false);
 			new SearchEmployee();
 		}
